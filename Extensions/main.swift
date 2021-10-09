@@ -76,3 +76,18 @@ extension Int {
 3.repetitions {
     print("Hello!")
 }
+
+//MARK: Изменяющиеся методы экземпляра
+print("\n//Изменяющиеся методы экземпляра")
+
+extension Int {
+    mutating func square() {
+        self = self * self
+    }
+}
+var someInt = 3
+print(someInt)
+someInt.square()
+print(someInt)
+// теперь переменная someInt имеет значение 9
+
