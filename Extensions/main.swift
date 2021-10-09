@@ -115,3 +115,39 @@ print(746381295[8])
 print(746381295[9])
 // возвращает 0, как если бы вы запросили вот так:
 print(0746381295[9])
+
+
+//MARK: Вложенные типы в расширениях
+print("\n//Вложенные типы в расширениях")
+
+extension Int {
+    enum Kind {
+        case negative, zero, positive
+    }
+    var kind: Kind {
+        switch self {
+        case 0:
+            return .zero
+        case let x where x > 0:
+            return .positive
+        default:
+            return .negative
+        }
+    }
+}
+
+func printIntegerKinds(_ numbers: [Int]) {
+    for number in numbers {
+        switch number.kind {
+        case .negative:
+            print("- ", terminator: "")
+        case .zero:
+            print("0 ", terminator: "")
+        case .positive:
+            print("+ ", terminator: "")
+        }
+    }
+    print("")
+}
+printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
+// Выведет "+ + - 0 - 0 + "
