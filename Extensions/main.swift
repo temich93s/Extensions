@@ -91,3 +91,27 @@ someInt.square()
 print(someInt)
 // теперь переменная someInt имеет значение 9
 
+
+//MARK: Сабскрипты в расширениях
+print("\n//Сабскрипты в расширениях")
+
+extension Int {
+    subscript(digitIndex: Int) -> Int {
+        var decimalBase = 1
+        for _ in 0..<digitIndex {
+            decimalBase *= 10
+        }
+        return (self / decimalBase) % 10
+    }
+}
+print(746381295[0])
+// возвращает 5
+print(746381295[1])
+// возвращает 9
+print(746381295[2])
+// возвращает 2
+print(746381295[8])
+// возвращает 7
+print(746381295[9])
+// возвращает 0, как если бы вы запросили вот так:
+print(0746381295[9])
