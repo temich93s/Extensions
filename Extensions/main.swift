@@ -61,3 +61,18 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size(width: 3.0, heig
 // исходная точка centerRect (2.5, 2.5) и его размер (3.0, 3.0)
 print(centerRect)
 
+
+//MARK: Методы в расширениях
+print("\n//Методы в расширениях")
+
+extension Int {
+    func repetitions(task: () -> Void) {
+        for _ in 0..<self {
+            task()
+        }
+    }
+}
+
+3.repetitions {
+    print("Hello!")
+}
